@@ -67,7 +67,7 @@ class UsuarioController
     {
         try {
             $cargosPermitidos = ['admin', 'ceremonialista'];
-
+        
             $esquema = v::key('nome', v::stringVal()->notEmpty()->length(1, 45))
                 ->key('email', v::email())
                 ->key('senha', v::stringVal()->notEmpty()->length(8, 255))

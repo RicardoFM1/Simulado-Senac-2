@@ -8,14 +8,9 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '4eea141957a1629938f27ba310d4ed34' => __DIR__ . '/..' . '/respect/stringifier/stringify.php',
-        'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
-        'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
-        '672fa33b8a93b27f6fee637927d22dcb' => __DIR__ . '/..' . '/respect/string-formatter/aliases.php',
+        '2df68f9e79c919e2d88506611769ed2e' => __DIR__ . '/..' . '/respect/stringifier/src/stringify.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        'fc3aee21f1e0de53e90850e2824b95b1' => __DIR__ . '/..' . '/respect/validation/aliases.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -23,29 +18,16 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
-            'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
-            'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
-            'Symfony\\Contracts\\Translation\\' => 30,
         ),
         'R' =>
         array (
             'Respect\\Validation\\' => 19,
             'Respect\\Stringifier\\' => 20,
-            'Respect\\StringFormatter\\' => 24,
         ),
         'P' =>
         array (
-            'Psr\\Container\\' => 14,
             'PhpOption\\' => 10,
-        ),
-        'L' =>
-        array (
-            'Laravel\\SerializableClosure\\' => 28,
-        ),
-        'I' =>
-        array (
-            'Invoker\\' => 8,
         ),
         'G' =>
         array (
@@ -58,7 +40,6 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
         'D' =>
         array (
             'Dotenv\\' => 7,
-            'DI\\' => 3,
         ),
     );
 
@@ -71,49 +52,21 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Polyfill\\Intl\\Normalizer\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer',
-        ),
-        'Symfony\\Polyfill\\Intl\\Idn\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
-        ),
         'Symfony\\Polyfill\\Ctype\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'Symfony\\Contracts\\Translation\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/symfony/translation-contracts',
-        ),
         'Respect\\Validation\\' =>
         array (
-            0 => __DIR__ . '/..' . '/respect/validation/src',
+            0 => __DIR__ . '/..' . '/respect/validation/library',
         ),
         'Respect\\Stringifier\\' =>
         array (
             0 => __DIR__ . '/..' . '/respect/stringifier/src',
         ),
-        'Respect\\StringFormatter\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/respect/string-formatter/src',
-        ),
-        'Psr\\Container\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
         'PhpOption\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
-        ),
-        'Laravel\\SerializableClosure\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/laravel/serializable-closure/src',
-        ),
-        'Invoker\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/php-di/invoker/src',
         ),
         'GrahamCampbell\\ResultType\\' =>
         array (
@@ -127,16 +80,11 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
-        'DI\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/php-di/php-di/src',
-        ),
     );
 
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',

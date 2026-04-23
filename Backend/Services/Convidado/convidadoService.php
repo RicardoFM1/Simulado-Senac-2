@@ -41,6 +41,34 @@ class ConvidadoService
         ];
     }
 
+    public function buscarConvidadoPorMesaId($idMesa)
+    {
+        if (empty($idMesa)) {
+            throw new Exception('Dados inválidos', 400);
+        }
+
+        $buscar = $this->db->prepare('SELECT * FROM convidado WHERE mesa_idmesa = :mesa_idmesa');
+
+        $buscar->execute([
+            ':mesa_idmesa' => $idMesa
+        ]);
+
+        $convidado = $buscar->fetch();
+
+        if (empty($convidado)) {
+            return [
+                'sucesso' => false,
+                'mensagem' => 'Convidado não encontrado',
+                'codigo' => 404
+            ];
+        }
+
+        return [
+            'sucesso' => true,
+            'dados' => $convidado
+        ];
+    }
+
     public function listarConvidados()
     {
         $query = $this->db->query("SELECT * FROM convidado");
@@ -63,6 +91,15 @@ class ConvidadoService
 
             if (empty($convidadoDados['mesa_idmesa'])) {
                 $convidadoDados['mesa_idmesa'] = null;
+            }
+
+            $convidadosReferenciaMesa = $this->buscarConvidadoPorMesaId($convidadoDados['mesa_idmesa']);
+            $mesa = new MesaService();
+            $mesaReferenciada = $mesa->buscarMesaPorId($convidadoDados['mesa_idmesa']);
+
+
+            if(count($convidadosReferenciaMesa) >= $mesaReferenciada['dados']['capacidade']){
+                throw new Exception('Mesa lotada', 409);
             }
 
             $criar = $this->db->prepare('INSERT INTO convidado (nome, sobrenome, email, cpf, categoria, confirmacao, telefone, mesa_idmesa)
@@ -123,6 +160,15 @@ class ConvidadoService
 
             if ($convidado['sucesso'] === false) {
                 throw new Exception($convidado['mensagem'], $convidado['codigo']);
+            }
+            
+            $convidadosReferenciaMesa = $this->buscarConvidadoPorMesaId($convidadoDados['mesa_idmesa']);
+            $mesa = new MesaService();
+            $mesaReferenciada = $mesa->buscarMesaPorId($convidadoDados['mesa_idmesa']);
+
+
+            if(count($convidadosReferenciaMesa) >= $mesaReferenciada['dados']['capacidade']){
+                throw new Exception('Mesa lotada', 409);
             }
 
             $atualizar = $this->db->prepare('UPDATE convidado set nome = :nome, sobrenome = :sobrenome,  email = :email, cpf = :cpf, categoria = :categoria,

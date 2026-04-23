@@ -1,13 +1,7 @@
 <?php declare(strict_types=1);
-// SPDX-FileCopyrightText: 2007–22 Mozilla Foundation
+// Copyright (c) https://publicsuffix.org
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 return [
-    'COM.UA',
-    'EDU.UA',
-    'GOV.UA',
-    'IN.UA',
-    'NET.UA',
-    'ORG.UA',
     'CHERKASSY.UA',
     'CHERKASY.UA',
     'CHERNIGOV.UA',
@@ -16,6 +10,7 @@ return [
     'CHERNOVTSY.UA',
     'CK.UA',
     'CN.UA',
+    'COM.UA',
     'CR.UA',
     'CRIMEA.UA',
     'CV.UA',
@@ -24,7 +19,10 @@ return [
     'DNIPROPETROVSK.UA',
     'DONETSK.UA',
     'DP.UA',
+    'EDU.UA',
+    'GOV.UA',
     'IF.UA',
+    'IN.UA',
     'IVANO-FRANKIVSK.UA',
     'KH.UA',
     'KHARKIV.UA',
@@ -50,10 +48,12 @@ return [
     'LVIV.UA',
     'MK.UA',
     'MYKOLAIV.UA',
+    'NET.UA',
     'NIKOLAEV.UA',
     'OD.UA',
     'ODESA.UA',
     'ODESSA.UA',
+    'ORG.UA',
     'PL.UA',
     'POLTAVA.UA',
     'RIVNE.UA',

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
-// SPDX-FileCopyrightText: 2007–22 Mozilla Foundation
+// Copyright (c) https://publicsuffix.org
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 return [
     'AC.AT',
-    'STH.AC.AT',
     'CO.AT',
     'GV.AT',
     'OR.AT',
+    'STH.AC.AT',
 ];

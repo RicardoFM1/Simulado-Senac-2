@@ -72,9 +72,9 @@ class ConvidadoController
             ->key('sobrenome', v::stringVal()->notEmpty()->length(1, 45))
             ->key('email', v::email())
             ->key('cpf', v::cpf())
-            ->key('categoria', v:stringVal()->notEmpty())
+            ->key('categoria', v::stringVal()->notEmpty())
             ->key('confirmacao', v::in($confirmacaoPermitida))
-            ->key('telefone', v::phone)
+            ->key('telefone', v::phone());
 
             $esquema->assert($convidadoDados);
         } catch (NestedValidationException $e) {

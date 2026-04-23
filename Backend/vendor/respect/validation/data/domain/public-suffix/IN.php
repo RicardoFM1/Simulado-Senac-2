@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-// SPDX-FileCopyrightText: 2007–22 Mozilla Foundation
+// Copyright (c) https://publicsuffix.org
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 return [
     '5G.IN',
@@ -7,7 +7,6 @@ return [
     'AC.IN',
     'AI.IN',
     'AM.IN',
-    'BANK.IN',
     'BIHAR.IN',
     'BIZ.IN',
     'BUSINESS.IN',
@@ -21,7 +20,6 @@ return [
     'DR.IN',
     'EDU.IN',
     'ER.IN',
-    'FIN.IN',
     'FIRM.IN',
     'GEN.IN',
     'GOV.IN',
