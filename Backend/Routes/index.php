@@ -1,0 +1,74 @@
+<?php
+
+use Dotenv\Dotenv;
+require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . '/../Controllers/Usuario/usuarioController.php';
+require_once __DIR__ . '/../Controllers/Mesa/mesaController.php';
+require_once __DIR__ . '/../Controllers/Convidado/convidadoController.php.php';
+
+
+
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../");
+$dotenv->load();
+
+
+$caminhoRequisicao = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$metodoRequisicao = $_SERVER['REQUEST_METHOD'];
+
+// Rotas Usuario:
+if($caminhoRequisicao === '/usuario'){
+    $usuarioController = new UsuarioController();
+
+    if($metodoRequisicao === 'GET'){
+        $usuarioController->listarUsuarios();
+    }
+     if($metodoRequisicao === 'POST'){
+        $usuarioController->criarUsuario();
+    }
+     if($metodoRequisicao === 'PUT'){
+        $usuarioController->atualizarUsuario();
+    }
+     if($metodoRequisicao === 'DELETE'){
+        $usuarioController->deletarUsuario();
+    }
+
+}
+
+// Rotas Mesa:
+if($caminhoRequisicao === '/mesa'){
+    $mesaController = new MesaController();
+
+    if($metodoRequisicao === 'GET'){
+        $mesaController->listarMesas();
+    }
+     if($metodoRequisicao === 'POST'){
+        $mesaController->criarMesa();
+    }
+     if($metodoRequisicao === 'PUT'){
+        $mesaController->atualizarMesa();
+    }
+     if($metodoRequisicao === 'DELETE'){
+        $mesaController->deletarMesa();
+    }
+
+}
+
+
+// Rotas Convidado:
+if($caminhoRequisicao === '/convidado'){
+    $convidadoController = new ConvidadoController();
+
+    if($metodoRequisicao === 'GET'){
+        $convidadoController->listarConvidados();
+    }
+     if($metodoRequisicao === 'POST'){
+        $convidadoController->criarConvidado();
+    }
+     if($metodoRequisicao === 'PUT'){
+        $convidadoController->atualizarConvidado();
+    }
+     if($metodoRequisicao === 'DELETE'){
+        $convidadoController->deletarConvidado();
+    }
+
+}
