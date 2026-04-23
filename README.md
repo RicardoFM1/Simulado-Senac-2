@@ -50,7 +50,7 @@
 - Git e github
 - Vs code
 
-** Logo após: execute no cmd do vs code: **
+``` Logo após: execute no cmd do vs code: ```
 
 ```bash
 cd Projeto-teste/Backend 
