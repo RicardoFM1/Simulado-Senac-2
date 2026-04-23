@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Respect\Validation\Validators;
 
 use Attribute;
-use Respect\Dev\CodeGen\FluentBuilder\Mixin;
 use Respect\Validation\Helpers\CanValidateUndefined;
 use Respect\Validation\Message\Template;
 use Respect\Validation\Result;
@@ -21,7 +20,6 @@ use Respect\Validation\Validator;
 
 use function array_map;
 
-#[Mixin(prefix: 'undefOr', exclude: ['all', 'key', 'property', 'not', 'nullOr', 'undefOr'])]
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::IS_REPEATABLE)]
 #[Template(
     'or must be undefined',

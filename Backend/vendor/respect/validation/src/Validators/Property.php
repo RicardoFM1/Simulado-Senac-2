@@ -19,12 +19,10 @@ namespace Respect\Validation\Validators;
 use Attribute;
 use ReflectionClass;
 use ReflectionObject;
-use Respect\Dev\CodeGen\FluentBuilder\Mixin;
 use Respect\Validation\Path;
 use Respect\Validation\Result;
 use Respect\Validation\Validator;
 
-#[Mixin(prefix: 'property', prefixParameter: true, exclude: ['all', 'key', 'property'])]
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::IS_REPEATABLE)]
 final readonly class Property implements Validator
 {

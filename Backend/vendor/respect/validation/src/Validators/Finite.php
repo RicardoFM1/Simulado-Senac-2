@@ -15,14 +15,12 @@ declare(strict_types=1);
 namespace Respect\Validation\Validators;
 
 use Attribute;
-use Respect\Dev\CodeGen\FluentBuilder\Mixin;
 use Respect\Validation\Message\Template;
 use Respect\Validation\Validators\Core\Simple;
 
 use function is_finite;
 use function is_numeric;
 
-#[Mixin(include: ['length', 'max', 'min'])]
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::IS_REPEATABLE)]
 #[Template(
     '{{subject}} must be a finite number',

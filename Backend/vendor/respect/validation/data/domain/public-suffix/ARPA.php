@@ -2,15 +2,11 @@
 // SPDX-FileCopyrightText: 2007–22 Mozilla Foundation
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 return [
-    'exceptions' => [],
-    'rules' => [
-        'E164.ARPA',
-        'HOME.ARPA',
-        'IN-ADDR.ARPA',
-        'IP6.ARPA',
-        'IRIS.ARPA',
-        'URI.ARPA',
-        'URN.ARPA',
-    ],
-    'wildcards' => [],
+    'E164.ARPA',
+    'HOME.ARPA',
+    'IN-ADDR.ARPA',
+    'IP6.ARPA',
+    'IRIS.ARPA',
+    'URI.ARPA',
+    'URN.ARPA',
 ];

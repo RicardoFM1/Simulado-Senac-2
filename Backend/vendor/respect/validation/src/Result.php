@@ -125,12 +125,7 @@ final readonly class Result
     public function withPath(Path $path): self
     {
         if ($this->path !== null) {
-            $current = $this->path;
-            while ($current->parent !== null) {
-                $current = $current->parent;
-            }
-
-            $current->parent = $path;
+            $this->path->parent = $path;
 
             return $this;
         }

@@ -4,7 +4,11 @@ use Dotenv\Dotenv;
 require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . '/../Controllers/Usuario/usuarioController.php';
 require_once __DIR__ . '/../Controllers/Mesa/mesaController.php';
-require_once __DIR__ . '/../Controllers/Convidado/convidadoController.php.php';
+require_once __DIR__ . '/../Controllers/Convidado/convidadoController.php';
+require_once __DIR__ . '/../Controllers/Checkin/checkinController.php';
+require_once __DIR__ . '/../Controllers/Acompanhante/acompanhanteController.php';
+
+
 
 
 
@@ -69,6 +73,46 @@ if($caminhoRequisicao === '/convidado'){
     }
      if($metodoRequisicao === 'DELETE'){
         $convidadoController->deletarConvidado();
+    }
+
+}
+
+
+// Rotas Checkin:
+if($caminhoRequisicao === '/checkin'){
+    $checkinController = new CheckinController();
+
+    if($metodoRequisicao === 'GET'){
+        $checkinController->listarCheckins();
+    }
+     if($metodoRequisicao === 'POST'){
+        $checkinController->criarCheckin();
+    }
+     if($metodoRequisicao === 'PUT'){
+        $checkinController->atualizarCheckin();
+    }
+     if($metodoRequisicao === 'DELETE'){
+        $checkinController->deletarCheckin();
+    }
+
+}
+
+
+// Rotas Acompanhante:
+if($caminhoRequisicao === '/acompanhante'){
+    $acompanhanteController = new AcompanhanteController();
+
+    if($metodoRequisicao === 'GET'){
+        $acompanhanteController->listarAcompanhantes();
+    }
+     if($metodoRequisicao === 'POST'){
+        $acompanhanteController->criarAcompanhante();
+    }
+     if($metodoRequisicao === 'PUT'){
+        $acompanhanteController->atualizarAcompanhante();
+    }
+     if($metodoRequisicao === 'DELETE'){
+        $acompanhanteController->deletarAcompanhante();
     }
 
 }

@@ -1252,6 +1252,7 @@ return [
     'WINE',
     'WINNERS',
     'WME',
+    'WOLTERSKLUWER',
     'WOODSIDE',
     'WORK',
     'WORKS',

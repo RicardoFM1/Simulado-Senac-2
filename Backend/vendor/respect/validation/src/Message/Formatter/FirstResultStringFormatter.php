@@ -18,14 +18,14 @@ use Respect\Validation\Result;
 final readonly class FirstResultStringFormatter implements StringFormatter
 {
     /** @param array<string|int, mixed> $templates */
-    public function format(Result $result, Renderer $renderer, array $templates, bool $isRoot = true): string
+    public function format(Result $result, Renderer $renderer, array $templates): string
     {
         if (!$result->hasCustomTemplate()) {
             foreach ($result->children as $child) {
-                return $this->format($child, $renderer, $templates, false);
+                return $this->format($child, $renderer, $templates);
             }
         }
 
-        return $renderer->render($result, $templates, $isRoot);
+        return $renderer->render($result, $templates);
     }
 }

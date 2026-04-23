@@ -16,7 +16,6 @@ use libphonenumber\PhoneNumberUtil;
 use Psr\Container\ContainerInterface;
 use Respect\StringFormatter\BypassTranslator;
 use Respect\StringFormatter\Modifier;
-use Respect\StringFormatter\Modifiers\FormatterModifier;
 use Respect\StringFormatter\Modifiers\ListModifier;
 use Respect\StringFormatter\Modifiers\QuoteModifier;
 use Respect\StringFormatter\Modifiers\RawModifier;
@@ -93,7 +92,7 @@ final class ContainerRegistry
                 new ListModifier(
                     new QuoteModifier(
                         new RawModifier(
-                            new FormatterModifier(new StringifyModifier($container->get(Stringifier::class))),
+                            new StringifyModifier($container->get(Stringifier::class)),
                         ),
                     ),
                     $container->get(TranslatorInterface::class),

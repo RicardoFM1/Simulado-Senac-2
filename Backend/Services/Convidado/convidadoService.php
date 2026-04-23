@@ -61,7 +61,7 @@ class ConvidadoService
             $convidadoDados['telefone'] = preg_replace('/\D/', '', $convidadoDados['telefone']);
             $convidadoDados['telefone'] = substr($convidadoDados, 0, 45);
 
-            if(empty($convidadoDados['mesa_idmesa'])){
+            if (empty($convidadoDados['mesa_idmesa'])) {
                 $convidadoDados['mesa_idmesa'] = null;
             }
 
@@ -91,7 +91,7 @@ class ConvidadoService
                 throw new Exception('CPF já em uso', 409);
             }
 
-             if (str_contains($e->getMessage(), 'fk_convidado_mesa')) {
+            if (str_contains($e->getMessage(), 'fk_convidado_mesa')) {
                 throw new Exception('Mesa referenciada não encontrada', 409);
             }
 
@@ -101,7 +101,7 @@ class ConvidadoService
     }
 
 
-   
+
 
     public function atualizarConvidado($convidadoDados, $emailConvidado)
     {
@@ -111,11 +111,11 @@ class ConvidadoService
                 throw new Exception('Dados inválidos', 400);
             }
 
-             $convidadoDados['cpf'] = preg_replace('/\D/', '', $convidadoDados['cpf']);
+            $convidadoDados['cpf'] = preg_replace('/\D/', '', $convidadoDados['cpf']);
             $convidadoDados['telefone'] = preg_replace('/\D/', '', $convidadoDados['telefone']);
             $convidadoDados['telefone'] = substr($convidadoDados, 0, 45);
 
-            if(empty($convidadoDados['mesa_idmesa'])){
+            if (empty($convidadoDados['mesa_idmesa'])) {
                 $convidadoDados['mesa_idmesa'] = null;
             }
 
@@ -129,7 +129,7 @@ class ConvidadoService
             confirmacao = :confirmacao, telefone = :telefone, mesa_idmesa = :mesa_idmesa WHERE email = :email_antigo');
 
             $atualizar->execute([
-               ':nome' => $convidadoDados['nome'],
+                ':nome' => $convidadoDados['nome'],
                 ':sobrenome' => $convidadoDados['sobrenome'],
                 ':email' => $convidadoDados['email'],
                 ':cpf' => $convidadoDados['cpf'],
@@ -145,14 +145,14 @@ class ConvidadoService
                 'mensagem' => 'Convidado atualizado com sucesso'
             ];
         } catch (PDOException $e) {
-             if (str_contains($e->getMessage(), 'email')) {
+            if (str_contains($e->getMessage(), 'email')) {
                 throw new Exception('Email já em uso', 409);
             }
             if (str_contains($e->getMessage(), 'cpf')) {
                 throw new Exception('CPF já em uso', 409);
             }
 
-             if (str_contains($e->getMessage(), 'fk_convidado_mesa')) {
+            if (str_contains($e->getMessage(), 'fk_convidado_mesa')) {
                 throw new Exception('Mesa referenciada não encontrada', 409);
             }
 

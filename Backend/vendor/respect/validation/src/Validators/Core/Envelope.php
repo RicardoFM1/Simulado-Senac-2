@@ -21,18 +21,11 @@ abstract class Envelope implements Validator
     public function __construct(
         private readonly Validator $validator,
         private readonly array $parameters = [],
-        private readonly string $template = Validator::TEMPLATE_STANDARD,
     ) {
     }
 
     public function evaluate(mixed $input): Result
     {
-        return Result::of(
-            $this->validator->evaluate($input)->hasPassed,
-            $input,
-            $this,
-            $this->parameters,
-            $this->template,
-        );
+        return Result::of($this->validator->evaluate($input)->hasPassed, $input, $this, $this->parameters);
     }
 }

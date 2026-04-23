@@ -2,17 +2,13 @@
 // SPDX-FileCopyrightText: 2007–22 Mozilla Foundation
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 return [
-    'exceptions' => [],
-    'rules' => [
-        'AC.KE',
-        'CO.KE',
-        'GO.KE',
-        'INFO.KE',
-        'ME.KE',
-        'MOBI.KE',
-        'NE.KE',
-        'OR.KE',
-        'SC.KE',
-    ],
-    'wildcards' => [],
+    'AC.KE',
+    'CO.KE',
+    'GO.KE',
+    'INFO.KE',
+    'ME.KE',
+    'MOBI.KE',
+    'NE.KE',
+    'OR.KE',
+    'SC.KE',
 ];

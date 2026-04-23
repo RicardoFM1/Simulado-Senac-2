@@ -2,20 +2,16 @@
 // SPDX-FileCopyrightText: 2007–22 Mozilla Foundation
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 return [
-    'exceptions' => [],
-    'rules' => [
-        'AC.TZ',
-        'CO.TZ',
-        'GO.TZ',
-        'HOTEL.TZ',
-        'INFO.TZ',
-        'ME.TZ',
-        'MIL.TZ',
-        'MOBI.TZ',
-        'NE.TZ',
-        'OR.TZ',
-        'SC.TZ',
-        'TV.TZ',
-    ],
-    'wildcards' => [],
+    'AC.TZ',
+    'CO.TZ',
+    'GO.TZ',
+    'HOTEL.TZ',
+    'INFO.TZ',
+    'ME.TZ',
+    'MIL.TZ',
+    'MOBI.TZ',
+    'NE.TZ',
+    'OR.TZ',
+    'SC.TZ',
+    'TV.TZ',
 ];

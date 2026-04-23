@@ -2,17 +2,13 @@
 // SPDX-FileCopyrightText: 2007–22 Mozilla Foundation
 // SPDX-License-Identifier: MPL-2.0-no-copyleft-exception
 return [
-    'exceptions' => [],
-    'rules' => [
-        'CO.OM',
-        'COM.OM',
-        'EDU.OM',
-        'GOV.OM',
-        'MED.OM',
-        'MUSEUM.OM',
-        'NET.OM',
-        'ORG.OM',
-        'PRO.OM',
-    ],
-    'wildcards' => [],
+    'CO.OM',
+    'COM.OM',
+    'EDU.OM',
+    'GOV.OM',
+    'MED.OM',
+    'MUSEUM.OM',
+    'NET.OM',
+    'ORG.OM',
+    'PRO.OM',
 ];

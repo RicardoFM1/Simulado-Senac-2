@@ -13,12 +13,10 @@ declare(strict_types=1);
 namespace Respect\Validation\Validators;
 
 use Attribute;
-use Respect\Dev\CodeGen\FluentBuilder\Mixin;
 use Respect\Validation\Result;
 use Respect\Validation\Validator;
 use Respect\Validation\Validators\Core\KeyRelated;
 
-#[Mixin(exclude: ['all', 'key', 'property'])]
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::IS_REPEATABLE)]
 final readonly class KeyOptional implements KeyRelated
 {

@@ -587,24 +587,24 @@
         },
         {
             "name": "respect/validation",
-            "version": "3.1.1",
-            "version_normalized": "3.1.1.0",
+            "version": "3.0.0",
+            "version_normalized": "3.0.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Respect/Validation.git",
-                "reference": "ab992b4b6284b6bb4250829dde07ec7da35d30f9"
+                "reference": "eedce8fb32b8a03e5e6c0733b8f5d645e83fd60d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Respect/Validation/zipball/ab992b4b6284b6bb4250829dde07ec7da35d30f9",
-                "reference": "ab992b4b6284b6bb4250829dde07ec7da35d30f9",
+                "url": "https://api.github.com/repos/Respect/Validation/zipball/eedce8fb32b8a03e5e6c0733b8f5d645e83fd60d",
+                "reference": "eedce8fb32b8a03e5e6c0733b8f5d645e83fd60d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.5",
                 "php-di/php-di": "^7.1",
                 "psr/container": "^2.0",
-                "respect/string-formatter": "^1.7",
+                "respect/string-formatter": "^1.6",
                 "respect/stringifier": "^3.0",
                 "symfony/polyfill-intl-idn": "^1.33",
                 "symfony/polyfill-mbstring": "^1.33"
@@ -628,7 +628,7 @@
                 "sokil/php-isocodes": "^4.2.1",
                 "sokil/php-isocodes-db-only": "^4.0",
                 "squizlabs/php_codesniffer": "^4.0",
-                "symfony/console": "^7.4 || ^8.0",
+                "symfony/console": "^7.4",
                 "symfony/translation": "^8.0",
                 "symfony/var-exporter": "^6.4 || ^7.0 || ^8.0"
             },
@@ -642,7 +642,7 @@
                 "sokil/php-isocodes": "Enable rules that validate ISO codes",
                 "sokil/php-isocodes-db-only": "Enable rules that validate ISO codes"
             },
-            "time": "2026-03-19T17:29:27+00:00",
+            "time": "2026-02-09T16:34:56+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -664,7 +664,7 @@
                 }
             ],
             "description": "The most awesome validation engine ever created for PHP",
-            "homepage": "http://respect.github.io/",
+            "homepage": "http://respect.github.io/Validation/",
             "keywords": [
                 "respect",
                 "validation",
@@ -672,7 +672,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Respect/Validation/issues",
-                "source": "https://github.com/Respect/Validation/tree/3.1.1"
+                "source": "https://github.com/Respect/Validation/tree/3.0.0"
             },
             "install-path": "../respect/validation"
         },

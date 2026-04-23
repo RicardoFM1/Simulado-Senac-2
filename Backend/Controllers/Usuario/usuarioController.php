@@ -66,13 +66,13 @@ class UsuarioController
     public function validarDados($usuarioDados)
     {
         try {
-        $cargosPermitidos = ['admin', 'ceremonialista'];
+            $cargosPermitidos = ['admin', 'ceremonialista'];
 
-        $esquema = v::key('nome', v::stringVal()->notEmpty()->length(1, 45))
-            ->key('email', v::email())
-            ->key('senha', v::stringVal()->notEmpty()->length(8, 255))
-            ->key('cpf', v::cpf())
-            ->key('cargo', v::in($cargosPermitidos));
+            $esquema = v::key('nome', v::stringVal()->notEmpty()->length(1, 45))
+                ->key('email', v::email())
+                ->key('senha', v::stringVal()->notEmpty()->length(8, 255))
+                ->key('cpf', v::cpf())
+                ->key('cargo', v::in($cargosPermitidos));
 
             $esquema->assert($usuarioDados);
         } catch (NestedValidationException $e) {
@@ -117,7 +117,7 @@ class UsuarioController
 
     public function listarUsuarios()
     {
-        
+
         echo json_encode($this->usuarioService->listarUsuarios());
         exit;
     }
@@ -126,7 +126,7 @@ class UsuarioController
     {
         try {
 
-            
+
             $usuarioDados = json_decode(file_get_contents("php://input"), true);
 
             $this->validarDados($usuarioDados);
@@ -180,15 +180,16 @@ class UsuarioController
         }
     }
 
-    public function deletarUsuario () {
-        try{
-        $this->apenasAdmin();
-        $emailUsuario = $_GET['email_usuario'];
+    public function deletarUsuario()
+    {
+        try {
+            $this->apenasAdmin();
+            $emailUsuario = $_GET['email_usuario'];
 
-        echo json_encode($this->usuarioService->deletarUsuario($emailUsuario));
-        exit;
-        }catch(Exception $e){
-             http_response_code($e->getCode());
+            echo json_encode($this->usuarioService->deletarUsuario($emailUsuario));
+            exit;
+        } catch (Exception $e) {
+            http_response_code($e->getCode());
             echo json_encode([
                 'sucesso' => false,
                 'mensagem' => $e->getMessage()
