@@ -240,11 +240,13 @@ No projeto, são apresentadas as seguintes rotas:
 
 
 - Usuario:
-|Rota|Método|Autorização|
-|/usuario|GET| Todos|
-|/usuario|POST| Todos |
-|/usuario|PUT| Apenas admins|
-|/usuario|DELETE| Apenas admins|
+| Rota     | Método | Autorização   |
+| -------- | ------ | ------------- |
+| /usuario | GET    | Todos         |
+| /usuario | POST   | Todos         |
+| /usuario | PUT    | Apenas admins |
+| /usuario | DELETE | Apenas admins |
+
 
 ```json
 "nome": "Ricardo",
@@ -256,12 +258,13 @@ No projeto, são apresentadas as seguintes rotas:
 
 
 - Convidado:
-|Rota|Método|Autorização|
-|-----------------------|
-|/convidado|GET| Todos|
-|/convidado|POST| Todos |
-|/convidado|PUT| Apenas admins|
-|/convidado|DELETE| Apenas admins|
+| Rota       | Método | Autorização   |
+| ---------- | ------ | ------------- |
+| /convidado | GET    | Todos         |
+| /convidado | POST   | Todos         |
+| /convidado | PUT    | Apenas admins |
+| /convidado | DELETE | Apenas admins |
+
 
 ```json
 "nome": "Ricardo",
@@ -276,12 +279,13 @@ No projeto, são apresentadas as seguintes rotas:
 
 
 - Acompanhante:
-|Rota|Método|Autorização|
-|-----------------------|
-|/acompanhante|GET| Todos|
-|/acompanhante|POST| Todos |
-|/acompanhante|PUT| Todos|
-|/acompanhante|DELETE| Todos|
+| Rota          | Método | Autorização |
+| ------------- | ------ | ----------- |
+| /acompanhante | GET    | Todos       |
+| /acompanhante | POST   | Todos       |
+| /acompanhante | PUT    | Todos       |
+| /acompanhante | DELETE | Todos       |
+
 ```json
 "nome": "Ricardo",
 "sobrenome": "Fernandes",
@@ -293,12 +297,12 @@ No projeto, são apresentadas as seguintes rotas:
 
 
 - Checkin:
-|Rota|Método|Autorização|
-|-----------------------|
-|/checkin|GET| Todos|
-|/checkin|POST| Todos |
-|/checkin|PUT| Todos|
-|/checkin|DELETE| Todos|
+| Rota     | Método | Autorização |
+| -------- | ------ | ----------- |
+| /checkin | GET    | Todos       |
+| /checkin | POST   | Todos       |
+| /checkin | PUT    | Todos       |
+| /checkin | DELETE | Todos       |
 
 ```json
 "usuario_idusuario": 1
@@ -310,12 +314,13 @@ No projeto, são apresentadas as seguintes rotas:
 
 
 - Mesa:
-|Rota|Método|Autorização|
-|-----------------------|
-|/mesa|GET| Todos|
-|/mesa|POST| Todos |
-|/mesa|PUT| Todos|
-|/mesa|DELETE| Todos|
+| Rota  | Método | Autorização |
+| ----- | ------ | ----------- |
+| /mesa | GET    | Todos       |
+| /mesa | POST   | Todos       |
+| /mesa | PUT    | Todos       |
+| /mesa | DELETE | Todos       |
+
 
 ```json
 "capacidade": 10,
