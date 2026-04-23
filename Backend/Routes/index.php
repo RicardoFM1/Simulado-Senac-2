@@ -1,6 +1,7 @@
 <?php
 
 use Dotenv\Dotenv;
+
 require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . '/../Controllers/Usuario/usuarioController.php';
 require_once __DIR__ . '/../Controllers/Mesa/mesaController.php';
@@ -20,99 +21,102 @@ $caminhoRequisicao = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $metodoRequisicao = $_SERVER['REQUEST_METHOD'];
 
 // Rotas Usuario:
-if($caminhoRequisicao === '/usuario'){
+if ($caminhoRequisicao === '/usuario') {
     $usuarioController = new UsuarioController();
 
-    if($metodoRequisicao === 'GET'){
+    if ($metodoRequisicao === 'GET') {
         $usuarioController->listarUsuarios();
     }
-     if($metodoRequisicao === 'POST'){
+    if ($metodoRequisicao === 'POST') {
         $usuarioController->criarUsuario();
     }
-     if($metodoRequisicao === 'PUT'){
+    if ($metodoRequisicao === 'PUT') {
         $usuarioController->atualizarUsuario();
     }
-     if($metodoRequisicao === 'DELETE'){
+    if ($metodoRequisicao === 'DELETE') {
         $usuarioController->deletarUsuario();
     }
+}
 
+if ($caminhoRequisicao === "/usuario/login") {
+    $usuarioController = new UsuarioController();
+
+    if ($metodoRequisicao === "POST") {
+        $usuarioController->fazerLogin();
+    }
 }
 
 // Rotas Mesa:
-if($caminhoRequisicao === '/mesa'){
+if ($caminhoRequisicao === '/mesa') {
     $mesaController = new MesaController();
 
-    if($metodoRequisicao === 'GET'){
+    if ($metodoRequisicao === 'GET') {
         $mesaController->listarMesas();
     }
-     if($metodoRequisicao === 'POST'){
+    if ($metodoRequisicao === 'POST') {
         $mesaController->criarMesa();
     }
-     if($metodoRequisicao === 'PUT'){
+    if ($metodoRequisicao === 'PUT') {
         $mesaController->atualizarMesa();
     }
-     if($metodoRequisicao === 'DELETE'){
+    if ($metodoRequisicao === 'DELETE') {
         $mesaController->deletarMesa();
     }
-
 }
 
 
 // Rotas Convidado:
-if($caminhoRequisicao === '/convidado'){
+if ($caminhoRequisicao === '/convidado') {
     $convidadoController = new ConvidadoController();
 
-    if($metodoRequisicao === 'GET'){
+    if ($metodoRequisicao === 'GET') {
         $convidadoController->listarConvidados();
     }
-     if($metodoRequisicao === 'POST'){
+    if ($metodoRequisicao === 'POST') {
         $convidadoController->criarConvidado();
     }
-     if($metodoRequisicao === 'PUT'){
+    if ($metodoRequisicao === 'PUT') {
         $convidadoController->atualizarConvidado();
     }
-     if($metodoRequisicao === 'DELETE'){
+    if ($metodoRequisicao === 'DELETE') {
         $convidadoController->deletarConvidado();
     }
-
 }
 
 
 // Rotas Checkin:
-if($caminhoRequisicao === '/checkin'){
+if ($caminhoRequisicao === '/checkin') {
     $checkinController = new CheckinController();
 
-    if($metodoRequisicao === 'GET'){
+    if ($metodoRequisicao === 'GET') {
         $checkinController->listarCheckins();
     }
-     if($metodoRequisicao === 'POST'){
+    if ($metodoRequisicao === 'POST') {
         $checkinController->criarCheckin();
     }
-     if($metodoRequisicao === 'PUT'){
+    if ($metodoRequisicao === 'PUT') {
         $checkinController->atualizarCheckin();
     }
-     if($metodoRequisicao === 'DELETE'){
+    if ($metodoRequisicao === 'DELETE') {
         $checkinController->deletarCheckin();
     }
-
 }
 
 
 // Rotas Acompanhante:
-if($caminhoRequisicao === '/acompanhante'){
+if ($caminhoRequisicao === '/acompanhante') {
     $acompanhanteController = new AcompanhanteController();
 
-    if($metodoRequisicao === 'GET'){
+    if ($metodoRequisicao === 'GET') {
         $acompanhanteController->listarAcompanhantes();
     }
-     if($metodoRequisicao === 'POST'){
+    if ($metodoRequisicao === 'POST') {
         $acompanhanteController->criarAcompanhante();
     }
-     if($metodoRequisicao === 'PUT'){
+    if ($metodoRequisicao === 'PUT') {
         $acompanhanteController->atualizarAcompanhante();
     }
-     if($metodoRequisicao === 'DELETE'){
+    if ($metodoRequisicao === 'DELETE') {
         $acompanhanteController->deletarAcompanhante();
     }
-
 }
