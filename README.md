@@ -50,7 +50,7 @@
 - Git e github
 - Vs code
 
-*** Logo após: execute no cmd do vs code: ***
+** Logo após: execute no cmd do vs code: **
 
 ```bash
 cd Projeto-teste/Backend 
@@ -239,7 +239,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 No projeto, são apresentadas as seguintes rotas:
 
 
-- Usuario:
+ Usuario:
+ 
 | Rota     | Método | Autorização   |
 | -------- | ------ | ------------- |
 | /usuario | GET    | Todos         |
@@ -258,6 +259,7 @@ No projeto, são apresentadas as seguintes rotas:
 
 
 - Convidado:
+  
 | Rota       | Método | Autorização   |
 | ---------- | ------ | ------------- |
 | /convidado | GET    | Todos         |
@@ -279,6 +281,7 @@ No projeto, são apresentadas as seguintes rotas:
 
 
 - Acompanhante:
+  
 | Rota          | Método | Autorização |
 | ------------- | ------ | ----------- |
 | /acompanhante | GET    | Todos       |
@@ -297,6 +300,7 @@ No projeto, são apresentadas as seguintes rotas:
 
 
 - Checkin:
+  
 | Rota     | Método | Autorização |
 | -------- | ------ | ----------- |
 | /checkin | GET    | Todos       |
@@ -314,6 +318,7 @@ No projeto, são apresentadas as seguintes rotas:
 
 
 - Mesa:
+  
 | Rota  | Método | Autorização |
 | ----- | ------ | ----------- |
 | /mesa | GET    | Todos       |
