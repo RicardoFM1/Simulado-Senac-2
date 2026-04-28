@@ -53,9 +53,9 @@ class ConvidadoService
             ':mesa_idmesa' => $idMesa
         ]);
 
-        $convidado = $buscar->fetch();
+        $convidados = $buscar->fetchAll();
 
-        if (empty($convidado)) {
+        if (empty($convidados)) {
             return [
                 'sucesso' => false,
                 'mensagem' => 'Convidado não encontrado',
@@ -65,7 +65,7 @@ class ConvidadoService
 
         return [
             'sucesso' => true,
-            'dados' => $convidado
+            'dados' => $convidados
         ];
     }
 
@@ -87,7 +87,7 @@ class ConvidadoService
         try {
             $convidadoDados['cpf'] = preg_replace('/\D/', '', $convidadoDados['cpf']);
             $convidadoDados['telefone'] = preg_replace('/\D/', '', $convidadoDados['telefone']);
-            $convidadoDados['telefone'] = substr($convidadoDados, 0, 45);
+            $convidadoDados['telefone'] = substr($convidadoDados['telefone'], 0, 45);
 
             if (empty($convidadoDados['mesa_idmesa'])) {
                 $convidadoDados['mesa_idmesa'] = null;
@@ -98,7 +98,7 @@ class ConvidadoService
             $mesaReferenciada = $mesa->buscarMesaPorId($convidadoDados['mesa_idmesa']);
 
 
-            if(count($convidadosReferenciaMesa) >= $mesaReferenciada['dados']['capacidade']){
+            if(count($convidadosReferenciaMesa['dados']) >= $mesaReferenciada['dados']['capacidade']){
                 throw new Exception('Mesa lotada', 409);
             }
 
@@ -150,7 +150,7 @@ class ConvidadoService
 
             $convidadoDados['cpf'] = preg_replace('/\D/', '', $convidadoDados['cpf']);
             $convidadoDados['telefone'] = preg_replace('/\D/', '', $convidadoDados['telefone']);
-            $convidadoDados['telefone'] = substr($convidadoDados, 0, 45);
+            $convidadoDados['telefone'] = substr($convidadoDados['telefone'], 0, 45);
 
             if (empty($convidadoDados['mesa_idmesa'])) {
                 $convidadoDados['mesa_idmesa'] = null;
@@ -167,7 +167,7 @@ class ConvidadoService
             $mesaReferenciada = $mesa->buscarMesaPorId($convidadoDados['mesa_idmesa']);
 
 
-            if(count($convidadosReferenciaMesa) >= $mesaReferenciada['dados']['capacidade']){
+            if(count($convidadosReferenciaMesa['dados']) >= $mesaReferenciada['dados']['capacidade']){
                 throw new Exception('Mesa lotada', 409);
             }
 
