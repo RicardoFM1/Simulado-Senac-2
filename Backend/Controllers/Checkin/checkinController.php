@@ -120,7 +120,7 @@ class CheckinController
         $tokenJWT = $this->validarToken();
         $idCheckin = $_GET['id_checkin'];
 
-        echo json_encode($this->chaveSecreta->deletarCheckin($idCheckin, $tokenJWT));
+        echo json_encode($this->checkinService->deletarCheckin($idCheckin, $tokenJWT));
         exit;
         }catch(Exception $e){
              http_response_code($e->getCode());
