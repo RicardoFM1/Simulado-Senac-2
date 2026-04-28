@@ -7,6 +7,7 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator as v;
 
 require_once __DIR__ . "/../../Services/Acompanhante/acompanhanteService.php";
+require_once __DIR__ . "/../../Middleware/authMiddleware.php";
 
 class AcompanhanteController
 {
@@ -102,7 +103,7 @@ class AcompanhanteController
 
     public function listarAcompanhantes()
     {
-        $this->validarToken();
+       Auth::validarMiddleware();
         echo json_encode($this->acompanhanteService->listarAcompanhantes());
         exit;
     }
@@ -111,7 +112,7 @@ class AcompanhanteController
     {
         try {
 
-            $this->validarToken();
+           Auth::validarMiddleware();
             $acompanhanteDados = json_decode(file_get_contents("php://input"), true);
 
             $this->validarDados($acompanhanteDados);
@@ -133,7 +134,7 @@ class AcompanhanteController
     public function atualizarAcompanhante()
     {
         try {
-            $this->validarToken();
+           Auth::validarMiddleware();
             $acompanhanteDados = json_decode(file_get_contents("php://input"), true);
             $this->validarDados($acompanhanteDados);
             $idAcompanhante = $_GET['id_acompanhante'];
@@ -152,7 +153,7 @@ class AcompanhanteController
 
     public function deletarAcompanhante () {
         try{
-        $this->validarToken();
+       Auth::validarMiddleware();
         $idAcompanhante = $_GET['id_acompanhante'];
 
         echo json_encode($this->acompanhanteService->deletarAcompanhante($idAcompanhante));

@@ -27,7 +27,7 @@ class MesaService
 
         $mesa = $buscar->fetch();
 
-        if (empty($usuario)) {
+        if (empty($mesa)) {
             return [
                 'sucesso' => false,
                 'mensagem' => 'Mesa não encontrada',

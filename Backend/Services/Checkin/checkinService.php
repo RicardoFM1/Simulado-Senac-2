@@ -22,7 +22,7 @@ class CheckinService
         $buscar = $this->db->prepare('SELECT * FROM checkin WHERE id_checkin = :id_checkin');
 
         $buscar->execute([
-            ':email' => $idCheckin
+            ':id_checkin' => $idCheckin
         ]);
 
         $checkin = $buscar->fetch();
@@ -115,11 +115,10 @@ class CheckinService
 
             $dataehora = new DateTime();            
 
-            $atualizar = $this->db->prepare('UPDATE checkin set usuario_idusuario = :usuario_idusuario, convidado_idconvidado = :convidado_idconvidado,  data_e_hora = :data_e_hora
+            $atualizar = $this->db->prepare('UPDATE checkin set convidado_idconvidado = :convidado_idconvidado,  data_e_hora = :data_e_hora
              WHERE id_checkin = :id_checkin');
 
             $atualizar->execute([
-               ':usuario_idusuario' => $tokenJWT->dados->id_usuario,
                 ':convidado_idconvidado' => $checkinDados['convidado_idconvidado'],
                 ':data_e_hora' => $dataehora->getTimestamp(),
                 ':id_checkin' => $idCheckin
@@ -142,7 +141,7 @@ class CheckinService
             }
 
 
-            throw new Exception('Erro ao atualizar convidado', 500);
+            throw new Exception('Erro ao atualizar checkin', 500);
         }
     }
 

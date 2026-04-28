@@ -27,7 +27,7 @@ class AcompanhanteService
 
         $acompanhante = $buscar->fetch();
 
-        if (empty($convidado)) {
+        if (empty($acompanhante)) {
             return [
                 'sucesso' => false,
                 'mensagem' => 'Acompanhante não encontrado',
@@ -141,7 +141,7 @@ class AcompanhanteService
             }
 
 
-            throw new Exception('Erro ao criar acompanhante', 500);
+            throw new Exception('Erro ao atualizar acompanhante', 500);
         }
     }
 
