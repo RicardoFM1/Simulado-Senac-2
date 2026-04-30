@@ -1,0 +1,72 @@
+.loginWrapper {
+    min-height: 100vh;
+ 
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    display: flex;
+    align-items: center;
+    
+}
+
+.loginCard {
+    border-radius: 20px;
+    background-color: #ffffff;
+ 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(231, 177, 231, 0.3); 
+}
+
+
+.loginCard h2 {
+    font-family: 'Playfair Display', serif; 
+    color: #555;
+    letter-spacing: 1px;
+}
+
+:global(.btn).btnLogin {
+   
+    background-color: rgba(231, 177, 231, 0.85);
+    border: none;
+    transition: all 0.4s ease;
+    width: 100%;
+    padding: 12px; 
+    font-weight: 500;
+    color: #5d4d5d !important; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.btnLogin:hover {
+    background-color: rgba(231, 177, 231, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 177, 231, 0.4);
+}
+
+
+:global(.input-group-text) {
+    background-color: transparent !important;
+    border-color: #eee !important;
+    color: #bca0bc !important; 
+}
+
+:global(.form-control) {
+    border-color: #eee !important;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+:global(.form-control:focus) {
+    border-color: rgba(231, 177, 231, 0.5) !important;
+    box-shadow: 0 0 0 0.2rem rgba(231, 177, 231, 0.1) !important;
+}
+
+
+.cardDecor {
+    height: 4px;
+    width: 60px;
+    background-color: rgba(231, 177, 231, 0.7);
+    margin: 0 auto 20px auto;
+    border-radius: 2px;
+}
