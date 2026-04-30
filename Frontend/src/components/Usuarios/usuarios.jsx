@@ -105,7 +105,7 @@ function Usuarios() {
             }
         }
     }catch(err){
-        toast.error(err.data.response.mensagem || 'Erro ao salvar usuário', {
+        toast.error(err.response.data || 'Erro ao salvar usuário', {
             position: "top-right",
             autoClose: 3000,
         });

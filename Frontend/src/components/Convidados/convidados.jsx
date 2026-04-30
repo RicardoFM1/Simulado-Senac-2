@@ -107,7 +107,7 @@ function Convidados() {
                 setShowModalNovo(false)
             }
         } catch (err) {
-            toast.error(err.data.response.mensagem || 'Erro ao criar convidado', {
+            toast.error(err.response.data || 'Erro ao criar convidado', {
                 position: "top-right",
                 autoClose: 3000,
             });
@@ -131,7 +131,7 @@ function Convidados() {
             }
 
         } catch (err) {
-            toast.error(err.data.response.mensagem || 'Erro ao editar convidado', {
+            toast.error(err.response.data || 'Erro ao editar convidado', {
                 position: "top-right",
                 autoClose: 3000,
             });
@@ -153,7 +153,7 @@ function Convidados() {
             setShowModalDeletar(false)
            }
         }catch(err){
-            toast.error(err.data.response.mensagem || 'Erro ao deletar convidado', {
+            toast.error(err.response.data || 'Erro ao deletar convidado', {
                 position: "top-right",
                 autoClose: 3000,
             });

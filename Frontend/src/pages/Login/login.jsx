@@ -37,7 +37,7 @@ function Login() {
             }
         }catch(err){
             console.log(err)
-            toast.error('Teste', {
+            toast.error(err.response.data.mensagem || 'Erro ao fazer login', {
                 position: "top-right",
                 autoClose: 3000,
             });

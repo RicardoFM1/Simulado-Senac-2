@@ -100,7 +100,7 @@ function Checkin() {
             }
 
         } catch (err) {
-            toast.error(err.data.response.mensagem || 'Erro ao criar checkin', {
+            toast.error(err.response.data || 'Erro ao criar checkin', {
                 position: "top-right",
                 autoClose: 3000,
             });
@@ -125,7 +125,7 @@ function Checkin() {
 
             }
         } catch (err) {
-            toast.error(err.data.response.mensagem || 'Erro ao editar checkin', {
+            toast.error(err.response.data || 'Erro ao editar checkin', {
                 position: "top-right",
                 autoClose: 3000,
             });
@@ -146,7 +146,7 @@ function Checkin() {
                 setShowModalDeletar(false)
             }
         }catch(err){
-            toast.error(err.data.response.mensagem || 'Erro ao deletar checkin', {
+            toast.error(err.response.data || 'Erro ao deletar checkin', {
                 position: "top-right",
                 autoClose: 3000,
             });  
