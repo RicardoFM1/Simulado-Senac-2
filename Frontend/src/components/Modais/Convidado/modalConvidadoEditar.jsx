@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Modal, Stack } from "react-bootstrap";
-import style from "./modalUsuario.module.css";
+import style from "./modalConvidado.module.css";
 
-function UsuarioModal({ data, handleClose, onSubmit, show, editando }) {
+function ConvidadoModalEditar ({ data, handleClose, onSubmit, show, editando }) {
   const [formData, setFormData] = useState({
     nome: "",
+    sobrenome: "",
     email: "",
     cpf: "",
-    cargo: "",
+    telefone: "",
+    confirmacao: "",
+    categoria: ""
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -17,7 +20,15 @@ function UsuarioModal({ data, handleClose, onSubmit, show, editando }) {
       setFormData(data);
       setIsEditing(true);
     } else {
-      setFormData({ nome: "", email: "", cpf: "", cargo: "" });
+      setFormData({
+        nome: "",
+        sobrenome: "",
+        email: "",
+        cpf: "",
+        telefone: "",
+        confirmacao: "",
+        categoria: ""
+      });
       setIsEditing(false);
     }
   }, [data, show]);
@@ -31,7 +42,7 @@ function UsuarioModal({ data, handleClose, onSubmit, show, editando }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { id_usuario, ...restoDados } = formData;
+    const { id_checkin, ...restoDados } = formData;
     onSubmit(restoDados, isEditing);
   };
 
@@ -39,7 +50,7 @@ function UsuarioModal({ data, handleClose, onSubmit, show, editando }) {
     <Modal style={{ zIndex: "10000" }} show={show} onHide={handleClose}>
       <Form onSubmit={handleSubmit}>
         <Modal.Header closeButton>
-          <Modal.Title>{data ? "Editar usuário" : "Novo usuário"}</Modal.Title>
+          <Modal.Title>Editar convidado</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Stack gap={3}>
@@ -48,6 +59,15 @@ function UsuarioModal({ data, handleClose, onSubmit, show, editando }) {
               <Form.Control
                 name="nome"
                 value={formData.nome}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Sobrenome</Form.Label>
+              <Form.Control
+                name="sobrenome"
+                value={formData.sobrenome}
                 onChange={handleChange}
                 required
               />
@@ -71,17 +91,36 @@ function UsuarioModal({ data, handleClose, onSubmit, show, editando }) {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Cargo</Form.Label>
+              <Form.Label>Telefone</Form.Label>
+              <Form.Control
+                name="telefone"
+                value={formData.telefone}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Confirmacao</Form.Label>
               <Form.Select
-                name="cargo"
-                value={formData.cargo}
+                name="confirmacao"
+                value={formData.confirmacao}
                 onChange={handleChange}
                 required
               >
-                <option value="">Selecione um cargo...</option>
-                <option value="Admin">Admin</option>
-                <option value="Ceremonialista">Ceremonialista</option>
+                <option value="">Selecione uma confirmacao...</option>
+                <option value="confirmado">Confirmado</option>
+                <option value="não confirmado">Não Confirmado</option>
+                <option value="cancelado">Cancelado</option>
               </Form.Select>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Categoria</Form.Label>
+              <Form.Control
+                name="categoria"
+                value={formData.categoria}
+                onChange={handleChange}
+                required
+              />
             </Form.Group>
           </Stack>
         </Modal.Body>
@@ -94,7 +133,7 @@ function UsuarioModal({ data, handleClose, onSubmit, show, editando }) {
             Cancelar
           </Button>
           <Button className={`btn ${style.btnSalvar}`} type="submit">
-            {data ? "Salvar alterações" : "Criar novo"}
+            {"Salvar alterações"}
           </Button>
         </Modal.Footer>
       </Form>
@@ -102,4 +141,4 @@ function UsuarioModal({ data, handleClose, onSubmit, show, editando }) {
   );
 }
 
-export default UsuarioModal
+export default ConvidadoModalEditar

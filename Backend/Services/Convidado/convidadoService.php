@@ -98,9 +98,9 @@ class ConvidadoService
             $mesaReferenciada = $mesa->buscarMesaPorId($convidadoDados['mesa_idmesa']);
 
 
-            if(count($convidadosReferenciaMesa['dados']) >= $mesaReferenciada['dados']['capacidade']){
-                throw new Exception('Mesa lotada', 409);
-            }
+            // if(count($convidadosReferenciaMesa['dados']) >= $mesaReferenciada['dados']['capacidade']){
+            //     throw new Exception('Mesa lotada', 409);
+            // }
 
             $criar = $this->db->prepare('INSERT INTO convidado (nome, sobrenome, email, cpf, categoria, confirmacao, telefone, mesa_idmesa)
             VALUES (:nome, :sobrenome, :email, :cpf, :categoria, :confirmacao, :telefone, :mesa_idmesa)');
@@ -167,9 +167,9 @@ class ConvidadoService
             $mesaReferenciada = $mesa->buscarMesaPorId($convidadoDados['mesa_idmesa']);
 
 
-            if(count($convidadosReferenciaMesa['dados']) >= $mesaReferenciada['dados']['capacidade']){
-                throw new Exception('Mesa lotada', 409);
-            }
+            // if(count($convidadosReferenciaMesa['dados']) >= $mesaReferenciada['dados']['capacidade']){
+            //     throw new Exception('Mesa lotada', 409);
+            // }
 
             $atualizar = $this->db->prepare('UPDATE convidado set nome = :nome, sobrenome = :sobrenome,  email = :email, cpf = :cpf, categoria = :categoria,
             confirmacao = :confirmacao, telefone = :telefone, mesa_idmesa = :mesa_idmesa WHERE email = :email_antigo');
