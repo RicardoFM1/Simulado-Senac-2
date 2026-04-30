@@ -33,7 +33,7 @@ function ConvidadoModalNovo ({ data, handleClose, onSubmit, show }) {
     <Modal style={{ zIndex: "10000" }} show={show} onHide={handleClose}>
       <Form onSubmit={handleSubmit}>
         <Modal.Header closeButton>
-          <Modal.Title>Novo checkin</Modal.Title>
+          <Modal.Title>Novo convidado</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Stack gap={3}>
