@@ -79,7 +79,7 @@ class ConvidadoController
             $convidadoDados = json_decode(file_get_contents("php://input"), true);
 
             $this->validarDados($convidadoDados);
-
+            http_response_code(201);
             echo json_encode($this->convidadoService->criarConvidado($convidadoDados));
             exit;
         } catch (Exception $e) {
