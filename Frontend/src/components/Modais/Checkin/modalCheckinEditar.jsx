@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Modal, Stack } from "react-bootstrap";
-import style from "./modalConvidado.module.css";
+import style from "./modalCheckin.module.css";
 
 function CheckinModalEditar ({ data, handleClose, onSubmit, show, editando }) {
   const [formData, setFormData] = useState({
-    convidado_idconvidado: null
+    convidado_idconvidado: ""
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -15,7 +15,7 @@ function CheckinModalEditar ({ data, handleClose, onSubmit, show, editando }) {
       setIsEditing(true);
     } else {
       setFormData({
-        convidado_idconvidado: null
+        convidado_idconvidado: ""
       });
       setIsEditing(false);
     }
@@ -30,7 +30,7 @@ function CheckinModalEditar ({ data, handleClose, onSubmit, show, editando }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { id_convidado, ...restoDados } = formData;
+    const { id_checkin, ...restoDados } = formData;
     onSubmit(restoDados, isEditing);
   };
 
@@ -46,7 +46,7 @@ function CheckinModalEditar ({ data, handleClose, onSubmit, show, editando }) {
               <Form.Label>Id do convidado</Form.Label>
               <Form.Control
                 type="number"
-                name="convidadoid"
+                name="convidado_idconvidado"
                 value={formData.convidado_idconvidado}
                 onChange={handleChange}
                 required

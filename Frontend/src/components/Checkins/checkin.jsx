@@ -5,12 +5,15 @@ import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import DadosTable from "../Table/table";
+import CheckinModalNovo from "../Modais/Checkin/modalCheckinNovo";
+import CheckinModalEditar from "../Modais/Checkin/modalCheckinEditar";
 
 
 
 function Checkin() {
     const [checkins, setCheckins] = useState([]);
-    const [showModal, setShowModal] = useState(false);
+    const [showModalNovo, setShowModalNovo] = useState(false);
+    const [showModalEditar, setShowModalEditar] = useState(false)
     const [showModalDeletar, setShowModalDeletar] = useState(false);
     const [dadosForm, setDadosForm] = useState(null);
     const [editando, setEditando] = useState(false)
@@ -34,7 +37,7 @@ function Checkin() {
     const handleEdit = (row) => {
         console.log("Editando", row);
         setDadosForm(row)
-        setShowModal(true)
+        setShowModalEditar(true)
     };
 
     const handleDelete = (id) => {
@@ -66,7 +69,7 @@ function Checkin() {
                         className="ignorar-fonte-btn"
                         variant="danger"
                         size="sm"
-                        onClick={() => handleDelete(row.id_usuario)}
+                        onClick={() => handleDelete(row.id_checkin)}
                     >
                         <MdDelete />
                     </Button>
@@ -75,7 +78,22 @@ function Checkin() {
         },
     ];
 
-    const enviarDados = async (dados, editando) => {
+    const enviarDadosNovo = async (dados) => {
+        try {
+
+            const res = await Api.post('/checkin', dados)
+            if (res.status === 201) {
+                console.log('Checkin criado')
+                await buscarCheckins()
+                setShowModalNovo(false)
+            }
+
+        } catch (err) {
+            console.log('Erro ao enviar dados', err)
+        }
+    }
+
+    const enviarDadosEditar = async (dados, editando) => {
         try {
             if (editando) {
                 const res = await Api.put(`/checkin?id_checkin=${dadosForm.id_checkin}`, dados)
@@ -83,14 +101,10 @@ function Checkin() {
                 if (res.status === 200) {
                     console.log('Checkin editado')
                     await buscarCheckins()
-                
+                    setShowModalEditar(false)
+
                 }
-            } else {
-                const res = await Api.post('/checkin', dados)
-                if (res.status === 201) {
-                    console.log('Checkin criado')
-                    await buscarCheckins()
-                }
+            
             }
         } catch (err) {
             console.log('Erro ao enviar dados', err)
@@ -100,11 +114,12 @@ function Checkin() {
     return (
         <>
             <h1>Checkins</h1>
-            <Button onClick={() => setShowModal(true)} className="my-3 ignorar-fonte-btn" variant="primary">
+            <Button onClick={() => setShowModalNovo(true)} className="my-3 ignorar-fonte-btn" variant="primary">
                 <IoMdAddCircleOutline /> Criar novo
             </Button>
             <DadosTable columns={columns} rows={checkins} keyField={"id_checkin"} />
-         
+            <CheckinModalNovo data={dadosForm} handleClose={() => setShowModalNovo(false)} show={showModalNovo} onSubmit={enviarDadosNovo} />
+            <CheckinModalEditar data={dadosForm} handleClose={() => setShowModalEditar(false)} show={showModalEditar} onSubmit={enviarDadosEditar} />
         </>
     );
 }

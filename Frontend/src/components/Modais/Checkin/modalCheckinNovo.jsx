@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Modal, Stack } from "react-bootstrap";
-import style from "./modalConvidado.module.css";
+import style from "./modalCheckin.module.css";
 
 function CheckinModalNovo({ data, handleClose, onSubmit, show }) {
   const [formData, setFormData] = useState({
-    convidado_idconvidado: null
+    convidado_idconvidado: ""
   });
 
 
@@ -35,7 +35,7 @@ function CheckinModalNovo({ data, handleClose, onSubmit, show }) {
               <Form.Label>Id do convidado</Form.Label>
               <Form.Control
                 type="number"
-                name="convidadoid"
+                name="convidado_idconvidado"
                 value={formData.convidado_idconvidado}
                 onChange={handleChange}
                 required
