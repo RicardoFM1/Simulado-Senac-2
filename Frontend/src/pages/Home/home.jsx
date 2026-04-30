@@ -3,7 +3,7 @@ import Header from "../../components/Header/header";
 import SideBar from "../../components/Sidebar/sidebar";
 import Dashboard from "../../components/Dashboard/dashboard";
 import Usuarios from "../../components/Usuarios/usuarios";
-import ConvidadosAcompanhantes from "../../components/ConvidadosAcompanhantes/convidadosAcompanhantes";
+import Convidados from "../../components/Convidados/convidados";
 import Checkin from "../../components/Checkins/checkin";
 import Mesas from "../../components/Mesas/mesas";
 
@@ -30,7 +30,7 @@ function Home ({telaAtiva, setTelaAtiva, show, setShow}) {
             <main style={{ minHeight: '100vh', padding: '20px', transition: 'all 0.5s'}}>
                 {telaAtiva === 'dashboard' && <Dashboard />}
                 {telaAtiva === 'usuarios' && <Usuarios />}
-                {telaAtiva === 'convidados_acompanhantes' && <ConvidadosAcompanhantes />}
+                {telaAtiva === 'convidados' && <Convidados/>}
                 {telaAtiva === 'checkins' && <Checkin />}
                 {telaAtiva === 'mesas' && <Mesas />}
             </main>

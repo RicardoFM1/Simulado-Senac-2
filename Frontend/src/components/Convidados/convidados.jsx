@@ -8,16 +8,18 @@ import DadosTable from "../Table/table";
 import ModalConvidadoNovo from "../Modais/Convidado/modalConvidadoNovo";
 import ConvidadoModalNovo from "../Modais/Convidado/modalConvidadoNovo";
 import ConvidadoModalEditar from "../Modais/Convidado/modalConvidadoEditar";
+import ConvidadoModalDeletar from "../Modais/Convidado/modalConvidadoDeletar";
 
 
 
-function ConvidadosAcompanhantes() {
+function Convidados() {
     const [convidados, setConvidados] = useState([]);
     const [showModalNovo, setShowModalNovo] = useState(false);
     const [showModalEditar, setShowModalEditar] = useState(false);
     const [showModalDeletar, setShowModalDeletar] = useState(false);
     const [dadosForm, setDadosForm] = useState(null);
     const [editando, setEditando] = useState(false)
+    const [emailConvidado, setEmailConvidado] = useState("")
 
     const buscarConvidados = async () => {
         try {
@@ -41,14 +43,18 @@ function ConvidadosAcompanhantes() {
         setShowModalEditar(true)
     };
 
-    const handleDelete = (id) => {
-        console.log("Excluindo", id);
+    const handleDelete = async (email) => {
+        console.log("Excluindo", email);
+        setEmailConvidado(email)
         setShowModalDeletar(true)
     };
 
 
 
+
+
     const columns = [
+        { header: "Id", accessor: "id_convidado" },
         { header: "Nome", accessor: "nome" },
         { header: "Sobrenome", accessor: "sobrenome" },
         { header: "Email", accessor: "email" },
@@ -74,7 +80,7 @@ function ConvidadosAcompanhantes() {
                         className="ignorar-fonte-btn"
                         variant="danger"
                         size="sm"
-                        onClick={() => handleDelete(row.id_usuario)}
+                        onClick={() => handleDelete(row.email)}
                     >
                         <MdDelete />
                     </Button>
@@ -114,6 +120,21 @@ function ConvidadosAcompanhantes() {
         }
     }
 
+
+    const deletarConvidado = async () => {
+        console.log(emailConvidado)
+        try{
+           const res = await Api.delete(`/convidado?email_convidado=${emailConvidado}`)
+           if(res.status === 200){
+            await buscarConvidados()
+            setShowModalDeletar(false)
+           }
+        }catch(err){
+            console.log(err)
+        }
+    }
+    
+
     return (
         <>
             <h1>Convidados</h1>
@@ -124,9 +145,9 @@ function ConvidadosAcompanhantes() {
             <DadosTable columns={columns} rows={convidados} keyField={"id_convidado"} />
             <ConvidadoModalNovo data={dadosForm} handleClose={() => setShowModalNovo(false)} show={showModalNovo} onSubmit={enviarDadosNovo} />
             <ConvidadoModalEditar data={dadosForm} handleClose={() => setShowModalEditar(false)} show={showModalEditar} onSubmit={enviarDadosEditar} />
-
+            <ConvidadoModalDeletar deletar={deletarConvidado} show={showModalDeletar} handleClose={() => setShowModalDeletar(false)}/> 
         </>
     );
 }
 
-export default ConvidadosAcompanhantes;
+export default Convidados;

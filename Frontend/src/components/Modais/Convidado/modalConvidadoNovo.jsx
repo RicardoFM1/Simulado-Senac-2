@@ -14,7 +14,7 @@ function ConvidadoModalNovo ({ data, handleClose, onSubmit, show }) {
   });
 
 
-
+ 
     
   const handleChange = (e) => {
     const { name, value } = e.target;

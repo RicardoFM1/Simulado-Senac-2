@@ -57,10 +57,10 @@ function SideBar({ telaAtiva, setTelaAtiva, show, setShow }) {
 
                         <Stack gap={2} style={{ maxWidth: 450 }}>
                             <Button
-                                onClick={() => setTelaAtiva("convidados_acompanhantes")}
-                                className={`btn ${telaAtiva === "convidados_acompanhantes" ? style.botaoAtivo : ""}`}
+                                onClick={() => setTelaAtiva("convidados")}
+                                className={`btn ${telaAtiva === "convidados" ? style.botaoAtivo : ""}`}
                             >
-                                <FaUsers size={20} /> Convidados e acompanhantes
+                                <FaUsers size={20} /> Convidados
                             </Button>
 
                             <Button

@@ -7,6 +7,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import DadosTable from "../Table/table";
 import CheckinModalNovo from "../Modais/Checkin/modalCheckinNovo";
 import CheckinModalEditar from "../Modais/Checkin/modalCheckinEditar";
+import CheckinModalDeletar from "../Modais/Checkin/modalCheckinDeletar";
 
 
 
@@ -17,6 +18,7 @@ function Checkin() {
     const [showModalDeletar, setShowModalDeletar] = useState(false);
     const [dadosForm, setDadosForm] = useState(null);
     const [editando, setEditando] = useState(false)
+    const [idCheckin, setIdCheckin] = useState(null)
 
     const buscarCheckins = async () => {
         try {
@@ -42,6 +44,7 @@ function Checkin() {
 
     const handleDelete = (id) => {
         console.log("Excluindo", id);
+        setIdCheckin(id)
         setShowModalDeletar(true)
     };
 
@@ -104,10 +107,24 @@ function Checkin() {
                     setShowModalEditar(false)
 
                 }
-            
+
             }
         } catch (err) {
             console.log('Erro ao enviar dados', err)
+        }
+    }
+
+    const deletarCheckin = async () => {
+        try{
+            const res = await Api.delete(`/checkin?id_checkin=${idCheckin}`)
+
+            if(res.status === 200){
+                console.log('checkin deletado')
+                await buscarCheckins()
+                setShowModalDeletar(false)
+            }
+        }catch(err){
+            console.log(err)
         }
     }
 
@@ -120,6 +137,7 @@ function Checkin() {
             <DadosTable columns={columns} rows={checkins} keyField={"id_checkin"} />
             <CheckinModalNovo data={dadosForm} handleClose={() => setShowModalNovo(false)} show={showModalNovo} onSubmit={enviarDadosNovo} />
             <CheckinModalEditar data={dadosForm} handleClose={() => setShowModalEditar(false)} show={showModalEditar} onSubmit={enviarDadosEditar} />
+            <CheckinModalDeletar deletar={deletarCheckin} handleClose={() => setShowModalDeletar(false)} show={showModalDeletar}/>
         </>
     );
 }
