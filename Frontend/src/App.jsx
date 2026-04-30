@@ -5,6 +5,8 @@ import "./App.css";
 import { useState } from "react";
 import Login from "./pages/Login/login";
 import Home from "./pages/Home/home";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home show={show} setShow={setShow} telaAtiva={telaAtiva} setTelaAtiva={setTelaAtiva}/>} />

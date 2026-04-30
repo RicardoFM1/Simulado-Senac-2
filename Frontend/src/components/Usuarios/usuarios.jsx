@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 
 import DadosTable from "../Table/table";
 import UsuarioModal from "../Modais/Usuario/modalUsuario";
+import { toast } from "react-toastify";
 
 
 function Usuarios() {
@@ -22,6 +23,10 @@ function Usuarios() {
       setUsuarios(res.data.dados);
       console.log(res.data.dados);
     } catch (err) {
+      toast.error('Erro ao buscar usuários', {
+        position: "top-right",
+        autoClose: 3000,
+      });
       console.log(err);
     }
   };
@@ -81,15 +86,29 @@ function Usuarios() {
             const res = await Api.put(`/usuario?email_usuario=${dadosForm.email}`, dados)
 
             if(res.status === 200){
-                console.log('Usuário editado')
+                toast.success('Usuário editado', {
+                    position: "top-right",
+                    autoClose: 3000,
+                });
+                await buscarUsuarios();
+                setShowModal(false);
             }
         }else{
             const res = await Api.post('/usuario', dados)
              if(res.status === 201){
-                console.log('Usuário criado')
+                toast.success('Usuário criado', {
+                    position: "top-right",
+                    autoClose: 3000,
+                });
+                await buscarUsuarios();
+                setShowModal(false);
             }
         }
     }catch(err){
+        toast.error(err.data.response.mensagem || 'Erro ao salvar usuário', {
+            position: "top-right",
+            autoClose: 3000,
+        });
         console.log('Erro ao enviar dados', err)
     }
   }

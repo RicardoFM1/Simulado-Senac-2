@@ -16,6 +16,7 @@ import { IoMdLock } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import Api from "../../api/api";
+import { toast } from "react-toastify";
 function Login() {
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
@@ -36,6 +37,10 @@ function Login() {
             }
         }catch(err){
             console.log(err)
+            toast.error('Teste', {
+                position: "top-right",
+                autoClose: 3000,
+            });
         }
     }
 

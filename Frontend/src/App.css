@@ -19,3 +19,7 @@
     font-weight: bold !important;
     transition: all 0.1s ;
 }
+
+.Toastify_toast-container {
+  z-index: 200000;
+}

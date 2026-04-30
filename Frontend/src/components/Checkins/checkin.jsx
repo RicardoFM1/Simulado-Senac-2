@@ -8,6 +8,7 @@ import DadosTable from "../Table/table";
 import CheckinModalNovo from "../Modais/Checkin/modalCheckinNovo";
 import CheckinModalEditar from "../Modais/Checkin/modalCheckinEditar";
 import CheckinModalDeletar from "../Modais/Checkin/modalCheckinDeletar";
+import { toast } from "react-toastify";
 
 
 
@@ -27,6 +28,10 @@ function Checkin() {
             setCheckins(res.data.dados);
             console.log(res.data.dados);
         } catch (err) {
+            toast.error('Erro ao buscar checkins', {
+                position: "top-right",
+                autoClose: 3000,
+            });
             console.log(err);
         }
     };
@@ -86,12 +91,19 @@ function Checkin() {
 
             const res = await Api.post('/checkin', dados)
             if (res.status === 201) {
-                console.log('Checkin criado')
+                toast.success('Checkin criado', {
+                    position: "top-right",
+                    autoClose: 3000,
+                });
                 await buscarCheckins()
                 setShowModalNovo(false)
             }
 
         } catch (err) {
+            toast.error(err.data.response.mensagem || 'Erro ao criar checkin', {
+                position: "top-right",
+                autoClose: 3000,
+            });
             console.log('Erro ao enviar dados', err)
         }
     }
@@ -102,7 +114,10 @@ function Checkin() {
                 const res = await Api.put(`/checkin?id_checkin=${dadosForm.id_checkin}`, dados)
 
                 if (res.status === 200) {
-                    console.log('Checkin editado')
+                    toast.success('Checkin editado', {
+                        position: "top-right",
+                        autoClose: 3000,
+                    });
                     await buscarCheckins()
                     setShowModalEditar(false)
 
@@ -110,6 +125,10 @@ function Checkin() {
 
             }
         } catch (err) {
+            toast.error(err.data.response.mensagem || 'Erro ao editar checkin', {
+                position: "top-right",
+                autoClose: 3000,
+            });
             console.log('Erro ao enviar dados', err)
         }
     }
@@ -119,11 +138,18 @@ function Checkin() {
             const res = await Api.delete(`/checkin?id_checkin=${idCheckin}`)
 
             if(res.status === 200){
-                console.log('checkin deletado')
+                toast.success('Checkin deletado', {
+                    position: "top-right",
+                    autoClose: 3000,
+                });
                 await buscarCheckins()
                 setShowModalDeletar(false)
             }
         }catch(err){
+            toast.error(err.data.response.mensagem || 'Erro ao deletar checkin', {
+                position: "top-right",
+                autoClose: 3000,
+            });  
             console.log(err)
         }
     }

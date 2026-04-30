@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import DadosTable from "../Table/table";
+import { toast } from "react-toastify";
 
 function Dashboard() {
   const [usuarios, setUsuarios] = useState([]);
@@ -14,6 +15,10 @@ function Dashboard() {
 
       setUsuarios(res.data.dados);
     } catch (err) {
+      toast.error('Erro ao buscar usuários', {
+        position: "top-right",
+        autoClose: 3000,
+      });
       console.log(err);
     }
   };

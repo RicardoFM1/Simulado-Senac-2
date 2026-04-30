@@ -9,6 +9,7 @@ import ModalConvidadoNovo from "../Modais/Convidado/modalConvidadoNovo";
 import ConvidadoModalNovo from "../Modais/Convidado/modalConvidadoNovo";
 import ConvidadoModalEditar from "../Modais/Convidado/modalConvidadoEditar";
 import ConvidadoModalDeletar from "../Modais/Convidado/modalConvidadoDeletar";
+import { toast } from 'react-toastify';
 
 
 
@@ -28,6 +29,10 @@ function Convidados() {
             setConvidados(res.data.dados);
             console.log(res.data.dados);
         } catch (err) {
+            toast.error('Erro ao buscar convidados', {
+                position: "top-right",
+                autoClose: 3000,
+            });
             console.log(err);
         }
     };
@@ -94,11 +99,18 @@ function Convidados() {
 
             const res = await Api.post('/convidado', dados)
             if (res.status === 201) {
-                console.log('Convidado criado')
+                toast.success('Convidado criado', {
+                    position: "top-right",
+                    autoClose: 3000,
+                });
                 await buscarConvidados()
                 setShowModalNovo(false)
             }
         } catch (err) {
+            toast.error(err.data.response.mensagem || 'Erro ao criar convidado', {
+                position: "top-right",
+                autoClose: 3000,
+            });
             console.log('Erro ao enviar dados', err)
         }
     }
@@ -109,13 +121,20 @@ function Convidados() {
                 const res = await Api.put(`/convidado?email_convidado=${dadosForm.email}`, dados)
 
                 if (res.status === 200) {
-                    console.log('Convidado editado')
+                    toast.success('Convidado editado', {
+                        position: "top-right",
+                        autoClose: 3000,
+                    });
                     await buscarConvidados()
                     setShowModalEditar(false)
                 }
             }
 
         } catch (err) {
+            toast.error(err.data.response.mensagem || 'Erro ao editar convidado', {
+                position: "top-right",
+                autoClose: 3000,
+            });
             console.log('Erro ao enviar dados', err)
         }
     }
@@ -126,10 +145,18 @@ function Convidados() {
         try{
            const res = await Api.delete(`/convidado?email_convidado=${emailConvidado}`)
            if(res.status === 200){
+            toast.success('Convidado deletado', {
+                position: "top-right",
+                autoClose: 3000,
+            });
             await buscarConvidados()
             setShowModalDeletar(false)
            }
         }catch(err){
+            toast.error(err.data.response.mensagem || 'Erro ao deletar convidado', {
+                position: "top-right",
+                autoClose: 3000,
+            });
             console.log(err)
         }
     }
